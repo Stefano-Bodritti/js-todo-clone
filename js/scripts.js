@@ -12,12 +12,17 @@ $(".add").keydown(function(event) {
   if ( event.which == 13 ) {
     // 2b. prendo il value dell'input
     var text = $(".add").val();
-    // 2c. clono il template
-    var templateLista = $(".template li").clone();
-    // 2d. inserisco il testo come primo elemento del li del template
-    templateLista.prepend(text);
-    // 2e. aggiungo il template alla lista
-    $(".to_do_list").append(templateLista);
+    // verifico che il campo input non sia vuoto
+    if ( text != "" ) {
+      // 2c. clono il template
+      var templateLista = $(".template li").clone();
+      // 2d. inserisco il testo come primo elemento del li del template
+      templateLista.prepend(text);
+      // 2e. aggiungo il template alla lista
+      $(".to_do_list").append(templateLista);
+      // 2f. cancello il campo input dopo inserimento
+      $(".add").val("");
+    }
   }
 
 });
