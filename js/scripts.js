@@ -6,5 +6,21 @@ $(".to_do_list").on("click", ".far", function() {
   $(this).parent().remove();
 });
 
+// 2. se l'utente preme un tasto nell'inupt allora...
+$(".add").keydown(function(event) {
+  // 2a. verifico se il tasto è enter
+  if ( event.which == 13 ) {
+    // 2b. prendo il value dell'input
+    var text = $(".add").val();
+    // 2c. clono il template
+    var templateLista = $(".template li").clone();
+    // 2d. inserisco il testo come primo elemento del li del template
+    templateLista.prepend(text);
+    // 2e. aggiungo il template alla lista
+    $(".to_do_list").append(templateLista);
+  }
+
+});
+
 
 });
